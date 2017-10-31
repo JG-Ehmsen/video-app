@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Video} from './videos/shared/video.model';
+import {VideoService} from './videos/shared/video.service';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent
 {
-  firstValue = 0;
-  secondValue = 0;
-  calcExp = '+';
+  videos: Video[];
 
-  calculate()
+  constructor(private videoService: VideoService)
   {
-    switch (this.calcExp)
-    {
-      case '-':
-        return this.firstValue * 1 - this.secondValue * 1;
-      default:
-        return this.firstValue * 1 + this.secondValue * 1;
-    }
+    videoService.getVideos().subscribe(videos => {this.videos = videos; });
   }
 }
