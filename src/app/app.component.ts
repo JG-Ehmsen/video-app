@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {Video} from './videos/shared/video.model';
-import {VideoService} from './videos/shared/video.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +7,7 @@ import {VideoService} from './videos/shared/video.service';
 })
 export class AppComponent
 {
-  videos: Video[];
-
-  constructor(private videoService: VideoService)
+  constructor()
   {
-    videoService.getVideos().subscribe(videos => {this.videos = videos; });
   }
 }
