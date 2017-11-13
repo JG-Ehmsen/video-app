@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoService} from '../shared/video.service';
 import {Video} from '../shared/video.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-video-list',
@@ -11,7 +12,7 @@ export class VideoListComponent implements OnInit {
 
   videos: Video[];
 
-  constructor(private videoService: VideoService)
+  constructor(private videoService: VideoService, private router: Router)
   {
 
   }
@@ -22,6 +23,7 @@ export class VideoListComponent implements OnInit {
 
   details(video: Video)
   {
+    this.router.navigateByUrl('/videos/' + video.id);
     console.log('clicked ' + video.id);
   }
 }

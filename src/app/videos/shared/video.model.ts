@@ -1,7 +1,9 @@
+import {Genre} from '../../genres/shared/genre.model';
+
 export class Video
 {
   id?: number;
   title: string;
   author: string;
-  genre: string;
+  genres: Genre[];
 }
